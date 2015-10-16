@@ -1,0 +1,5 @@
+<%= form_for [:admin, @post, @tag] do |f| %>
+  <%= f.label :name %>
+  <p><%= f.text_field :name %></p>
+  <%= f.submit %>
+<% end %>
