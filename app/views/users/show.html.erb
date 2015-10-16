@@ -1,0 +1,9 @@
+<%= @post.title %>
+
+<% @tags.each do |tag| %>
+| <%= tag.name %>
+<% end %>
+
+<p><%= @post.content %><p>
+
+<%= link_to "tags", users_tags_path %>
