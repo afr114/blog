@@ -35,6 +35,10 @@ class Admin::TagsController < ApplicationController
       redirect_to admin_post_path(@tag.post_id)
     end
 
+    def taglist
+      @post = Post.find(params[:post_id])
+    end
+
   private
     def tag_params
       params.require(:tag).permit(:name)

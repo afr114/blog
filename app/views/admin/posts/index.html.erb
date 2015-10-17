@@ -1,5 +1,7 @@
+<h1>Blog Posts</h1>
+
 <% @posts.each do |post| %>
-  <%= link_to post.title, admin_post_path(post) %>
+<li> <%= link_to post.title, admin_post_path(post) %> </li>
   <% end %>
 
 <p><%= link_to "Add New Post", new_admin_post_path %></p>

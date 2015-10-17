@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   def index
     @posts = Post.all
-  end
-
-
-  def tags
+    @tags = Tag.all
+    binding.pry
   end
 
   def show
