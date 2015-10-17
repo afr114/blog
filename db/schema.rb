@@ -23,10 +23,13 @@ ActiveRecord::Schema.define(version: 20151017023135) do
     t.datetime "updated_at"
   end
 
-  create_table "posts_tags", force: :cascade do |t|
+  create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"
   end
+
+  add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
+  add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"

@@ -1,8 +1,8 @@
 class CreatePostsTags < ActiveRecord::Migration
   def change
-    create_table :posts_tags do |t|
-      t.column :post_id, :integer
-      t.column :tag_id, :integer
+    create_table :posts_tags, id: false do |t|
+      t.belongs_to :post, index: true
+      t.belongs_to :tag, index: true
     end
   end
 end
