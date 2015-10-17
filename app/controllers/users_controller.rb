@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def index
     @posts = Post.all
     @tags = Tag.all
-    binding.pry
   end
 
   def show
