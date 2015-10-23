@@ -1,12 +1,21 @@
 class Admin::TagsController < ApplicationController
+  before_action :select_post, only: [:new, :create, :edit, :update]
+
+  def index
+    @tag = Tag.find(params[:post_id])
+  end
+
+  def show
+  end
+
   def new
-    @post = Post.find(params[:post_id])
     @tag = @post.tags.new
   end
 
   def create
     @post = Post.find(params[:post_id])
     @tag = @post.tags.new(tag_params)
+    @post.tags.push(@tag)
     if @tag.save
       redirect_to admin_post_path(@post)
     else
@@ -15,14 +24,12 @@ class Admin::TagsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:post_id])
     @tag = @post.tags.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:post_id])
     @tag = @post.tags.find(params[:id])
-      if @tags.update(tag_params)
+      if @tag.update(tag_params)
         redirect_to admin_post_path(@post)
       else
         render :edit
@@ -35,13 +42,13 @@ class Admin::TagsController < ApplicationController
       redirect_to admin_post_path(@tag.post_id)
     end
 
-    def taglist
-      @post = Post.find(params[:post_id])
-    end
-
   private
     def tag_params
       params.require(:tag).permit(:name, :post_id)
+    end
+
+    def select_post
+      @post = Post.find(params[:post_id])
     end
 
 end

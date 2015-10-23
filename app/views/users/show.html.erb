@@ -1,7 +1,7 @@
 <%= @post.title %>
 
 <% @tags.each do |tag| %>
-| <%= link_to tag.name, taglist_admin_post_tag_path(@post.id, tag.post_id) %>
+| <%= link_to tag.name, admin_post_tags_path(tag) %>
 <% end %>
 
 <p><%= @post.content %><p>

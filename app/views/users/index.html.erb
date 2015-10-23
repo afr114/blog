@@ -7,8 +7,7 @@
 <% @posts.each do |post| %>
   <li><%= link_to post.title, user_path(post) %></li>
 <% end %>
-
 <h3> Tags </h3>
 <% @tags.each do |tag| %>
-<li> <%= tag.name %> </li>
+<li> <%= link_to tag.name, admin_post_tags_path(tag) %> </li>
   <% end %>
