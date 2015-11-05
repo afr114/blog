@@ -10,6 +10,10 @@ class Admin::TagsController < ApplicationController
 
   def new
     @tag = @post.tags.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def create

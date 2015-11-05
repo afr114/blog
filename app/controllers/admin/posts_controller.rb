@@ -5,6 +5,10 @@ class Admin::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show
@@ -25,6 +29,10 @@ end
 
 def edit
   @post = Post.find(params[:id])
+  respond_to do |format|
+      format.js
+      format.html
+    end
 end
 
 def update

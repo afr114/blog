@@ -5,7 +5,6 @@
 
 <p><%= @post.content %><p>
 
-<%= link_to "Add Tags", new_admin_post_tag_path(@post) %>
-<%= link_to "Edit Post", edit_admin_post_path(@post) %>
-
-<%= link_to "Delete Post", admin_post_path(@post), :data => {:confirm => "Are you sure?", :method => "delete"} %>
+<%= link_to "Add Tags", new_admin_post_tag_path(@post), class: "btn btn-default", id: "add_tags_link", remote: true %><br>
+<%= link_to "Edit Post", edit_admin_post_path(@post), id: "edit_post_link", class: "btn btn-default", remote: true %><br>
+<%= link_to "Delete Post", admin_post_path(@post), class: "btn btn-default", :data => {:confirm => "Are you sure?", :method => "delete"} %><br>

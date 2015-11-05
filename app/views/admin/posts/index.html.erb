@@ -4,4 +4,4 @@
 <li> <%= link_to post.title, admin_post_path(post) %> </li>
   <% end %>
 
-<p><%= link_to "Add New Post", new_admin_post_path %></p>
+<p><%= link_to "Add New Post", new_admin_post_path, id: "new_post_link", class: "btn btn-default", remote: true %></p>

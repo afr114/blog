@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <div id="admin">
@@ -18,7 +19,8 @@
   <%= link_to "Sign In", new_admin_session_path %>
   </div>
   <% end %>
-<%= yield %>
 
+<%= yield %>
+</div>
 </body>
 </html>
